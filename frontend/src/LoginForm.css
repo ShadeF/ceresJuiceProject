@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.imgBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(1px);
+}
+
+.introText {
+  position: absolute;
+  left: 1%;
+  top: 10%;
+  z-index: 1;
+  color: #fff;
+  width: 30%;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  border-radius: 100px;
+  background-color: #27ae60;
+  animation: colorAnimation 5s infinite alternate;
+}
+
+@keyframes colorAnimation {
+  0% {
+    background-color: #27ae60;
+  }
+  50% {
+    background-color: #e74c3c;
+  }
+  100% {
+    background-color: #f39c12;
+  }
+}
+
+.introText h1 {
+  font-size: 45px;
+  color: rgb(248, 242, 242);
+}
+
+.contentBx {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.formBx {
+  width: 50%;
+}
+
+.formBx h2 {
+  color: #ff5733;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.formBx .intro {
+  color: #ff5733;
+  font-size: 1em;
+  margin-bottom: 20px;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.formBx .inputBx {
+  margin-bottom: 20px;
+}
+
+.formBx .inputBx span {
+  font-size: 16px;
+  margin-bottom: 15px;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.formBx input,
+.formBx select,
+.formBx button {
+  width: calc(100% - 40px);
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  border: 2px solid #ff5733;
+  background: transparent;
+  border-radius: 30px;
+}
+
+.formBx select {
+  margin-bottom: 20px;
+}
+
+.formBx button {
+  background-color: #f92a3f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formBx button:hover {
+  background-color: #27ae60;
+}
+
+.formBx p,
+.formBx a {
+  color: #f9a602;
+  font-size: 16px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.formBx a:hover {
+  color: #27ae60;
+}
