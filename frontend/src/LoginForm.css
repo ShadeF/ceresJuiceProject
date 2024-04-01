@@ -5,71 +5,30 @@
 }
 
 section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
   display: flex;
 }
 
 .imgBx {
-  position: relative;
   width: 50%;
-  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .imgBx img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(1px);
-}
-
-.introText {
-  position: absolute;
-  left: 1%;
-  top: 10%;
-  z-index: 1;
-  color: #fff;
-  width: 30%;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  border-radius: 100px;
-  background-color: #27ae60;
-  animation: colorAnimation 5s infinite alternate;
-}
-
-@keyframes colorAnimation {
-  0% {
-    background-color: #27ae60;
-  }
-  50% {
-    background-color: #e74c3c;
-  }
-  100% {
-    background-color: #f39c12;
-  }
-}
-
-.introText h1 {
-  font-size: 45px;
-  color: rgb(248, 242, 242);
 }
 
 .contentBx {
-  display: flex;
   width: 50%;
-  height: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .formBx {
-  width: 50%;
+  width: 80%;
 }
 
 .formBx h2 {
@@ -102,7 +61,7 @@ section {
 .formBx input,
 .formBx select,
 .formBx button {
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 10px;
   font-size: 16px;
   outline: none;
@@ -137,4 +96,8 @@ section {
 
 .formBx a:hover {
   color: #27ae60;
+}
+
+.registerCustomer {
+  color: black;
 }

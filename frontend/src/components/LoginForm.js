@@ -1,16 +1,31 @@
 import React from "react";
 import "../LoginForm.css";
+import { Link } from 'react-router-dom'; // Import Link for routing
 
 function LoginForm() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Simulate backend logic for authentication
+    const username = e.target.elements.username.value;
+    const password = e.target.elements.password.value;
+    const branch = e.target.elements.branch.value; // eslint-disable-line no-unused-vars
+
+    // Replace this block with actual backend logic
+    if (username === "admin" && password === "admin") {
+      // Successful login
+      alert("Login successful!"); // Replace with your alert or notification component
+      // Redirect or perform any other actions after successful login
+      window.location.href="/shop"
+    } else {
+      // Failed login
+      alert("Invalid username or password"); // Replace with your alert or notification component
+    }
+  };
+
   return (
     <section>
       <div className="imgBx">
         <img src="/juice4.jpg" alt="Ceres Fruit Juice" />
-        <div className="introText">
-          <h1>
-            Ceres <span>Juice</span>
-          </h1>
-        </div>
       </div>
       <div className="contentBx">
         <div className="formBx">
@@ -19,28 +34,36 @@ function LoginForm() {
             Log in to access cashier dashboard and manage transactions
             efficiently.
           </p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="inputBx">
               <span>Username</span>
-              <input type="text" name="username" />
+              <input type="text" name="username" required />
             </div>
 
             <div className="inputBx">
               <span>Password</span>
-              <input type="password" name="password" />
+              <input type="password" name="password" required />
             </div>
 
-            <select name="branch">
-              <option value="">Select Branch</option>
-              <option value="Nairobi">Nairobi</option>
-              <option value="Mombasa">Mombasa</option>
-              <option value="Headquarters">Headquarters</option>
-            </select>
+            <div className="inputBx">
+              <span>Branch</span>
+              <select name="branch" required>
+                <option value="">Select Branch</option>
+                <option value="Nairobi">Nairobi</option>
+                <option value="Mombasa">Mombasa</option>
+                <option value="Headquarters">Headquarters</option>
+              </select>
+            </div>
 
             <div className="inputBx">
               <button type="submit">Log In</button>
             </div>
           </form>
+
+          <div className="registerCustomer">
+            <p>New Customer? <Link to="/register">Register Customer</Link></p>
+          </div>
+
         </div>
       </div>
     </section>
