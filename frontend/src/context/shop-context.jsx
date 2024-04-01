@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { PRODUCTS } from "../JuiceProducts"; // Adjust the import path as necessary
 
 export const ShopContext = createContext(null);
@@ -9,7 +9,16 @@ const getDefaultCart = () => {
 };
 
 export const ShopContextProvider = (props) => {
- const [cartItems, setCartItems] = useState(getDefaultCart());
+ const [cartItems, setCartItems] = useState(() => {
+    // Load cart items from local storage when the component mounts
+    const savedCartItems = localStorage.getItem("cartItems");
+    return savedCartItems ? JSON.parse(savedCartItems) : getDefaultCart();
+ });
+
+ useEffect(() => {
+    // Save cart items to local storage whenever they change
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+ }, [cartItems]);
 
  const getTotalCartAmount = () => {
     let totalAmount = 0;
@@ -49,10 +58,6 @@ export const ShopContextProvider = (props) => {
     });
  };
 
- const updateCartItemCount = (newAmount, itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: { ...prev[itemId], quantity: newAmount } }));
- };
-
  const incrementItem = (itemId) => {
     setCartItems((prev) => {
       const item = prev[itemId];
@@ -78,29 +83,27 @@ export const ShopContextProvider = (props) => {
  };
 
  const checkout = () => {
+  const cartItemsArray = Object.values(cartItems);
+    // Store the array in localStorage
+    localStorage.setItem('purchasedItems', JSON.stringify(cartItemsArray));
+    // Optionally, clear the cart from the state
     setCartItems(getDefaultCart());
- };
+    // // Store the cart items in localStorage as purchased items
+    // localStorage.setItem('purchasedItems', JSON.stringify(cartItems));
 
- // Convert cartItems object to an array of items
- const getCartItemsArray = () => {
-   return Object.values(cartItems).map(item => ({
-     id: item.id,
-     name: item.name,
-     price: item.price,
-     quantity: item.quantity
-   }));
+    // // Clear the cart
+    // setCartItems(getDefaultCart());
+    // localStorage.removeItem("cartItems"); // Also clear from local storage
  };
 
  const contextValue = {
     cartItems,
     addToCart,
     removeFromCart,
+    incrementItem,
+    decrementItem,
     getTotalCartAmount,
     checkout,
-    getCartItemsArray, // Include the method to convert cartItems to an array
-    updateCartItemCount, // Reintegrated function
-    incrementItem, // Reintegrated function
-    decrementItem, // Reintegrated function
  };
 
  return (

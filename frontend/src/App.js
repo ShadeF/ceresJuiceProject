@@ -6,16 +6,18 @@ import { Shop } from "./pages/shop/shop.jsx";
 import Cart from "./pages/cart/cart.jsx";
 import Checkout from "./pages/cart/checkout.jsx";
 import { ShopContextProvider } from "./context/shop-context";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import SalesReport from "./pages/salesreport/salesreport.jsx";
+import RestockForm from "./pages/restock/res.jsx";
 
 function App() {
   return (
     <div className="App">
       <ShopContextProvider>
         <Router> {/* Corrected the typo from BrowseRouter to BrowserRouter */}
-          <Navbar />
+          {/* <Navbar /> */}
           {/* <RegisterForm /> */}
           {/* <LoginForm /> */}
           <Routes>
@@ -25,6 +27,8 @@ function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="shop" element={<Shop />} />
             <Route path="checkout" element={<Checkout />} />
+            <Route path="sales-report" element={<SalesReport/>} />
+            <Route path="restock" element={<RestockForm/>} />
           </Routes>
         </Router>
       </ShopContextProvider>
