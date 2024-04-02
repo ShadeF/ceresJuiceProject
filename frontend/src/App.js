@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'; // Importing BrowserRouter and Link
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Importing BrowserRouter and Link
 
 import { Shop } from "./pages/shop/shop.jsx";
 import Cart from "./pages/cart/cart.jsx";
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <ShopContextProvider>
-        <Router> 
+        <Router>
           <Routes>
             <Route path="/" element={<LoginForm />} />
             <Route path="login" element={<LoginForm />} />
@@ -25,8 +25,8 @@ function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="shop" element={<Shop />} />
             <Route path="checkout" element={<Checkout />} />
-            <Route path="sales-report" element={<SalesReport/>} />
-            <Route path="restock" element={<RestockForm/>} />
+            <Route path="sales-report" element={<SalesReport />} />
+            <Route path="restock" element={<RestockForm />} />
             <Route path="branch-selection" element={<BranchSelectionForm />} />
           </Routes>
         </Router>

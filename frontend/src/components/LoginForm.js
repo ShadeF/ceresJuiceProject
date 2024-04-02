@@ -1,6 +1,6 @@
 import React from "react";
 import "../LoginForm.css";
-import { Link } from 'react-router-dom'; // Import Link for routing
+import { Link } from "react-router-dom"; // Import Link for routing
 
 function LoginForm() {
   const handleSubmit = (e) => {
@@ -8,14 +8,13 @@ function LoginForm() {
     // Simulate backend logic for authentication
     const username = e.target.elements.username.value;
     const password = e.target.elements.password.value;
-   
 
     // Replace this block with actual backend logic
     if (username === "admin" && password === "admin") {
       // Successful login
       alert("Login successful!"); // Replace with your alert or notification component
       // Redirect or perform any other actions after successful login
-      window.location.href="/branch-selection"
+      window.location.href = "/branch-selection";
     } else {
       // Failed login
       alert("Invalid username or password"); // Replace with your alert or notification component
@@ -51,9 +50,13 @@ function LoginForm() {
           </form>
 
           <div className="registerCustomer">
-            <p>New Customer? <Link to="/register">Register Customer</Link><br></br><br></br> Cashier Registration? <Link to="/register-cashier">Register Cashier</Link></p>
+            <p>
+              New Customer? <Link to="/register">Register Customer</Link>
+              <br></br>
+              <br></br> Cashier Registration?{" "}
+              <Link to="/register-cashier">Register Cashier</Link>
+            </p>
           </div>
-
         </div>
       </div>
     </section>
