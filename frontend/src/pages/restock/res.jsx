@@ -33,6 +33,7 @@ const RestockForm = () => {
                     <select className="select-field" value={branchLocation} onChange={(e) => setBranchLocation(e.target.value)}>
                         <option value="Nairobi">Nairobi</option>
                         <option value="Mombasa">Mombasa</option>
+                        <option value="HQ">HQ</option>
                     </select>
                 </label>
                 <button className="submit-button" type="submit">Submit</button>

@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Navbar.css";
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const [selectedBranch, setSelectedBranch] = useState(""); // State to hold the selected branch
+
+  const handleBranchChange = (e) => {
+    setSelectedBranch(e.target.value);
+  };
+
   return (
     <div>
       <nav
@@ -48,21 +54,28 @@ const Navbar = () => {
                 </Link>
               </li>
 
+              {/* Dropdown for selecting branch */}
               <li className="nav-item">
-                <Link to="/branch-selection" className="nav-link">
-                  Branch 
-                </Link>
+                <select
+                  className="nav-link"
+                  value={selectedBranch}
+                  onChange={handleBranchChange}
+                >
+                  <option value="">Select Branch</option>
+                  <option value="hq">HQ</option>
+                  <option value="nairobi">Nairobi</option>
+                  <option value="mombasa">Mombasa</option>
+                </select>
               </li>
-
             </ul>
           </div>
           <div className="buttons">
-          <Link to="/cart" className="btn btn-outline-dark ms-2">
-            <i className="fa fa-shopping-cart me-1"></i> Cart
-          </Link>
-          <Link to="/login" className="btn btn-outline-dark">
-            <i className="fa fa-sign-in me-1"></i> Logout
-          </Link>
+            <Link to="/cart" className="btn btn-outline-dark ms-2">
+              <i className="fa fa-shopping-cart me-1"></i> Cart
+            </Link>
+            <Link to="/login" className="btn btn-outline-dark">
+              <i className="fa fa-sign-in me-1"></i> Logout
+            </Link>
           </div>
         </div>
       </nav>
