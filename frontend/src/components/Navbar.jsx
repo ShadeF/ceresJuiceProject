@@ -47,11 +47,18 @@ const Navbar = () => {
                   Sales Report
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link to="/branch-selection" className="nav-link">
+                  Branch 
+                </Link>
+              </li>
+
             </ul>
           </div>
           <div className="buttons">
           <Link to="/cart" className="btn btn-outline-dark ms-2">
-            <i className="fa fa-shopping-cart me-1"></i> Cart (0)
+            <i className="fa fa-shopping-cart me-1"></i> Cart
           </Link>
           <Link to="/login" className="btn btn-outline-dark">
             <i className="fa fa-sign-in me-1"></i> Logout

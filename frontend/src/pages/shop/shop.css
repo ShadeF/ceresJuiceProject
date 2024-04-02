@@ -1,6 +1,6 @@
 .navbar-container{
  
-  margin-right: -12%;
+  margin-right: -19%;
   position: absolute;
   
 }
@@ -13,7 +13,7 @@
   align-items: center;
   width: 100%;
   padding: 0 20px; /* Add padding to the left and right edges */ 
-  margin-top: -8%;
+  margin-top: -3%;
 }
 
 .shopTitle {

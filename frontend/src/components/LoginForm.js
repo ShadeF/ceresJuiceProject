@@ -8,14 +8,14 @@ function LoginForm() {
     // Simulate backend logic for authentication
     const username = e.target.elements.username.value;
     const password = e.target.elements.password.value;
-    const branch = e.target.elements.branch.value; // eslint-disable-line no-unused-vars
+   
 
     // Replace this block with actual backend logic
     if (username === "admin" && password === "admin") {
       // Successful login
       alert("Login successful!"); // Replace with your alert or notification component
       // Redirect or perform any other actions after successful login
-      window.location.href="/shop"
+      window.location.href="/branch-selection"
     } else {
       // Failed login
       alert("Invalid username or password"); // Replace with your alert or notification component
@@ -46,22 +46,12 @@ function LoginForm() {
             </div>
 
             <div className="inputBx">
-              <span>Branch</span>
-              <select name="branch" required>
-                <option value="">Select Branch</option>
-                <option value="Nairobi">Nairobi</option>
-                <option value="Mombasa">Mombasa</option>
-                <option value="Headquarters">Headquarters</option>
-              </select>
-            </div>
-
-            <div className="inputBx">
               <button type="submit">Log In</button>
             </div>
           </form>
 
           <div className="registerCustomer">
-            <p>New Customer? <Link to="/register">Register Customer</Link></p>
+            <p>New Customer? <Link to="/register">Register Customer</Link><br></br><br></br> Cashier Registration? <Link to="/register-cashier">Register Cashier</Link></p>
           </div>
 
         </div>

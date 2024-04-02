@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "../RegisterForm.css";
 
-function RegisterForm() {
+function RegisterCashier() {
   // State to manage form inputs
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phoneNumber: "",
+    location: ""
   });
 
   // State to manage loading state
@@ -47,25 +48,27 @@ function RegisterForm() {
   return (
     <div className="container">
       <h2>Welcome to Ceres Juice Bar</h2>
-      <h3>Register user details</h3>
+      <h3>Register Cashier Details</h3>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="fullName">Full Name</label>
-          <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleChange} required />
-        </div>
         <div>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
         </div>
-        <div>
-          <label htmlFor="phoneNumber">Phone Number</label>
-          <input type="tel" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required />
-        </div>
         
+        <div>
+          <label htmlFor="Password">Password</label>
+          <input type="password" id="location" name="location" value={formData.location} onChange={handleChange} required />
+        </div>
+
+        {/* <div className="inputBx">
+              <span>Password</span>
+              <input type="password" name="password" required />
+            </div> */}
+
         <button type="submit" disabled={loading}>{loading ? 'Registering...' : 'Register'}</button>
       </form>
     </div>
   );
 }
 
-export default RegisterForm;
+export default RegisterCashier;
