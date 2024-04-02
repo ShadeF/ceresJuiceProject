@@ -15,7 +15,7 @@ function LoginForm() {
       alert("Login successful!"); // Replace with your alert or notification component
       // Redirect or perform any other actions after successful login
       //Just testing something
-      window.location.href = "/branch-selection";
+      window.location.href = "/shop";
     } else {
       // Failed login
       alert("Invalid username or password"); // Replace with your alert or notification component
